@@ -10,24 +10,24 @@ puts "seeded #{Post.count} posts!"
 
 print "Seeding database with comments..."
 
-comment01 = Comment.create(title: "comment01", comment: "Lorem", post: post1)
-comment02 = Comment.create(title: "comment02", comment: "Ipsum", post: post1)
-comment03 = Comment.create(title: "comment03", comment: "Potato", post: post1)
+comment01 = Comment.create(title: "comment01", user_comment: "Lorem", post: post1)
+comment02 = Comment.create(title: "comment02", user_comment: "Ipsum", post: post1)
+comment03 = Comment.create(title: "comment03", user_comment: "Potato", post: post1)
 
-comment04 = Comment.create(title: "comment04", comment: "Tomato", post: post2)
-comment05 = Comment.create(title: "comment05", comment: "Uncle", post: post2)
-comment06 = Comment.create(title: "comment06", comment: "Aunt", post: post2)
+comment04 = Comment.create(title: "comment04", user_comment: "Tomato", post: post2)
+comment05 = Comment.create(title: "comment05", user_comment: "Uncle", post: post2)
+comment06 = Comment.create(title: "comment06", user_comment: "Aunt", post: post2)
 
-comment07 = Comment.create(title: "comment07", comment: "Bat", post: post3)
-comment08 = Comment.create(title: "comment08", comment: "Cat", post: post3)
-comment09 = Comment.create(title: "comment09", comment: "Charles", post: post3)
+comment07 = Comment.create(title: "comment07", user_comment: "Bat", post: post3)
+comment08 = Comment.create(title: "comment08", user_comment: "Cat", post: post3)
+comment09 = Comment.create(title: "comment09", user_comment: "Charles", post: post3)
 
-comment10 = Comment.create(title: "comment10", comment: "Barrels", post: post4)
-comment11 = Comment.create(title: "comment11", comment: "Wow", post: post4)
-comment12 = Comment.create(title: "comment12", comment: "This is a comment", post: post4)
+comment10 = Comment.create(title: "comment10", user_comment: "Barrels", post: post4)
+comment11 = Comment.create(title: "comment11", user_comment: "Wow", post: post4)
+comment12 = Comment.create(title: "comment12", user_comment: "This is a comment", post: post4)
 
-comment13 = Comment.create(title: "comment13", comment: "Outstanding", post: post5)
-comment14 = Comment.create(title: "comment14", comment: "Demanding", post: post5)
-comment15 = Comment.create(title: "comment15", comment: "Borem", post: post5)
+comment13 = Comment.create(title: "comment13", user_comment: "Outstanding", post: post5)
+comment14 = Comment.create(title: "comment14", user_comment: "Demanding", post: post5)
+comment15 = Comment.create(title: "comment15", user_comment: "Borem", post: post5)
 
 puts "seeded #{Comment.count} comments!"
