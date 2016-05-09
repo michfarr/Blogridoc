@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -37,6 +38,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
 end
 
 group :development do
