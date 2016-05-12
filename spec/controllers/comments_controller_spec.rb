@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
   let(:post) { create(:post) }
-  let(:comments) { create_list(:comment, 3, post: post) }
 
-  describe "GET index" do
+  describe "GET #index" do
+    let(:comments) { create_list(:comment, 3, post: post) }
+
     it "assigns all comments to an instance var called @comments" do
       get :index, post_id: post.to_param
       expect(assigns(:comments)).to eq comments
