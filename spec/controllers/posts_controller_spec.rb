@@ -12,6 +12,10 @@ RSpec.describe PostsController, type: :controller do
     it "renders the index template" do
       expect(response).to render_template{ "index" }
     end
+
+    it "returns 200 OK http status" do
+      expect(response).to have_http_status(200)
+    end
   end
 
   describe "GET #show" do
@@ -25,6 +29,10 @@ RSpec.describe PostsController, type: :controller do
     it "renders the show template" do
       expect(response).to render_template{ "show" }
     end
+
+    it "returns 200 OK http status" do
+      expect(response).to have_http_status(200)
+    end
   end
 
   describe "GET #new" do
@@ -35,6 +43,10 @@ RSpec.describe PostsController, type: :controller do
 
     it "renders the new template" do
       expect(response).to render_template{ "new" }
+    end
+
+    it "returns 200 OK http status" do
+      expect(response).to have_http_status(200)
     end
   end
 
@@ -70,12 +82,21 @@ RSpec.describe PostsController, type: :controller do
       it "assigns the new post to the instance var @post" do
         post :create, valid_params
         expect(assigns(:post)).to be_a(Post)
+      end
+
+      it "saves the new post stored in the instance var @post" do
+        post :create, valid_params
         expect(assigns(:post)).to be_persisted
       end
 
       it "redirects to the show page for the new @post" do
         post :create, valid_params
         expect(response).to redirect_to(Post.last)
+      end
+
+      it "returns 302 http status" do
+        post :create, valid_params
+        expect(response).to have_http_status(302)
       end
     end
 
@@ -95,6 +116,11 @@ RSpec.describe PostsController, type: :controller do
       it "renders the new page" do
         post :create, invalid_params
         expect(response).to render_template{ "new" }
+      end
+
+      it "returns 200 http status" do
+        post :create, invalid_params
+        expect(response).to have_http_status(200)
       end
     end
   end
@@ -120,6 +146,12 @@ RSpec.describe PostsController, type: :controller do
         put :update, id: post.to_param, post: valid_params
         expect(response).to redirect_to post
       end
+
+      it "returns 302 http status" do
+        post = create(:post)
+        put :update, id: post.to_param, post: valid_params
+        expect(response).to have_http_status(302)
+      end
     end
 
     context "with invalid params" do
@@ -136,6 +168,12 @@ RSpec.describe PostsController, type: :controller do
         put :update, id: post.to_param, post: invalid_params
         expect(response).to render_template{ "edit" }
       end
+
+      it "returns 302 http status" do
+        post = create(:post)
+        put :update, id: post.to_param, post: invalid_params
+        expect(response).to have_http_status(200)
+      end
     end
   end
 
@@ -151,12 +189,19 @@ RSpec.describe PostsController, type: :controller do
 
     it "redirects to the posts index" do
       post = create(:post)
+
       expect{
         delete :destroy, id: post.to_param
       }.to change{
         Post.count
       }.by(-1)
       expect(response).to redirect_to posts_url
+    end
+
+    it "returns 200 http status" do
+      post = create(:post)
+      delete :destroy, id: post.to_param
+      expect(response).to have_http_status 302
     end
   end
 end
