@@ -4,7 +4,7 @@ RSpec.describe CommentsController, type: :routing do
   describe "GET /posts/:post_id/comments" do
     let(:post) { create(:post) }
 
-    it "should route to comments index" do
+    it "routes to comments index" do
       route = "/posts/#{post.to_param}/comments"
       expect(get route).to route_to "comments#index", post_id: post.to_param
     end

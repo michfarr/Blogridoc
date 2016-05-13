@@ -1,5 +1,27 @@
 <div class="post">
-  <h3><%= post.title %></h3>
-  <h4><%= post.subtitle %></h4>
-  <p><%= post.content %></p>
+    <div class="row">
+      <div class="col l1 offset-l1 s2"
+        <%= image_tag(post.image, :class => "responsive-img") %> Placeholder
+      </div>
+      <div class="col l5 s10">
+        <h3><%= post.title %></h3>
+        <h4><%= post.subtitle %></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l8 offset-l1 s18">
+        <p><%= truncate(post.content, length: 600) %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l8 offset-l1 s18">
+        <%= link_to "View full article", "#", :class => "left" %>
+        <span class="right"><%= post.comments.count %> comments</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l8 offset-l1 s18">
+        <hr class="hr-post" />
+      </div>
+    </div>
 </div>
