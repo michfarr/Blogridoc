@@ -1,0 +1,14 @@
+#dropdown1 {
+  border-bottom-right-radius: 1em;
+  border-bottom-left-radius: 1em;
+
+  li a {
+    background-color: #1e88e5;
+    color: #fff;
+
+    &:hover {
+      background-color: #1565c0;
+      color: #e3f2fd;
+    }
+  }
+}

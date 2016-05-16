@@ -1,9 +1,34 @@
 <header>
-  <nav class="nav-top">
-    <div class="container">
-      <div class="nav-wrapper">
-        <h1>Blog</h1>
+  <div class="navbar-fixed">
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+      <li><%= link_to "LinkedIn", "https://www.linkedin.com/in/mikepfarrell" %></li>
+      <li><%= link_to "Twitter", "https://www.twitter.com/" %></li>
+      <li><%= link_to "GitHub", "https://github.com/michfarr" %></li>
+    </ul>
+    <nav>
+      <div class="nav-wrapper blue darken-2">
+        <div class="container">
+          <ul class="left hide-on-med-and-down">
+            <li class="<%= is_active?('/') %>"><%= link_to "Home", '/' %></li>
+            <li class="<%= is_active?('/posts/1') %>"><%= link_to "Blog", '/posts/1 ' %></li>
+            <li class="<%= is_active?('/posts/2') %>"><%= link_to "Contact", '/posts/2' %></li>
+            <li class="<%= is_active?('/posts/3') %>"><%= link_to "Portfolio", '/posts/3' %></li>
+          </ul>
+          <ul class="right hide-on-med-and-down">
+            <!-- Dropdown Trigger -->
+            <li><%= link_to "#", :class => "dropdown-button", :data => { :activates => "dropdown1" } do %>
+              Contact<i class="material-icons right">arrow_drop_down</i>
+            <% end %></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </header>
+<script>
+  $(".dropdown-button").dropdown({
+    hover: true,
+    belowOrigin: true
+  });
+</script>

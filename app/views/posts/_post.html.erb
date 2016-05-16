@@ -1,27 +1,24 @@
-<div class="post">
+<div class="post blue lighten-5">
+  <div class="post-shape">
     <div class="row">
-      <div class="col l1 offset-l1 s2"
-        <%= image_tag(post.image, :class => "responsive-img") %> Placeholder
-      </div>
-      <div class="post-sub-title col l5 s10">
+      <div class="col l5 offset-l1 s10 post-sub-title">
         <h3><%= post.title %></h3>
         <h4><%= post.subtitle %></h4>
       </div>
-    </div>
-    <div class="row">
-      <div class="post-content col l8 offset-l1 s18">
-        <p><%= truncate(post.content, length: 600) %></p>
+      <div class="col l1 s2 offset-l2 image-padding">
+        <%= image_tag(post.image, :class => "responsive-img")%>
       </div>
     </div>
     <div class="row">
-      <div class="post-link col l8 offset-l1 s18">
+      <div class="post-content col l8 offset-l1 s18 blue lighten-4">
+        <p class="flow-text"><%= truncate(post.content, length: 600) %></p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="post-link col l8 offset-l1 s18 blue lighten-3">
         <%= link_to "Read more", post_path(post.id), :class => "left" %>
         <span class="right"><%= post.comments.count %> comments</span>
       </div>
     </div>
-    <div class="row">
-      <div class="col l8 offset-l1 s18">
-        <hr class="hr-post" />
-      </div>
-    </div>
+  </div>
 </div>
