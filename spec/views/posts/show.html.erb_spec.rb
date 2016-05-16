@@ -9,11 +9,11 @@ RSpec.describe "posts/show.html.erb", type: :view do
   end
 
   it "shows a header" do
-    assert_select "h1", text: "#{post.title}", count: 1
+    assert_select "h3", text: "#{post.title}", count: 1
   end
 
   it "shows a subheader" do
-    assert_select "h2", text: "#{post.subtitle}", count: 1
+    assert_select "h4", text: "#{post.subtitle}", count: 1
   end
 
   it "shows the paragraph content" do

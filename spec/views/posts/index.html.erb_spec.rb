@@ -17,26 +17,26 @@ RSpec.describe "posts/index.html.erb", type: :view do
   end
 
   it "renders all posts with titles" do
-    assert_select "div.post", count: posts.count
+    assert_select "div.post-sub-title", count: posts.count
 
     posts.each do |post|
-      assert_select ".post>h3", text: post.title, count:1
+      assert_select ".post-sub-title>h3", text: post.title, count:1
     end
   end
 
   it "renders all posts with sub-titles" do
-    assert_select "div.post", count: posts.count
+    assert_select "div.post-sub-title", count: posts.count
 
     posts.each do |post|
-      assert_select ".post>h4", text: post.subtitle, count: 1
+      assert_select ".post-sub-title>h4", text: post.subtitle, count: 1
     end
   end
 
   it "renders all posts with content" do
-    assert_select "div.post", count: posts.count
+    assert_select "div.post-content", count: posts.count
 
     posts.each do |post|
-      assert_select ".post>p", text: post.content, count: 1
+      assert_select ".post-content>p", text: post.content, count: 1
     end
   end
 end
